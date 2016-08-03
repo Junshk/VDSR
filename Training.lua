@@ -1,10 +1,10 @@
 require  'optim'
 require 'cunn'
-require 'SuperResolution/extraction'
-require 'Dropbox/klib/safeCuda'
+require 'extraction'
+--require 'Dropbox/klib/safeCuda'
 require 'gnuplot'
 require 'cudnn'
-require 'SuperResolution/paramofTraining'
+require 'paramofTraining'
 
 torch.setdefaulttensortype('torch.FloatTensor')
 
