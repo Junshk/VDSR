@@ -1,5 +1,4 @@
 
-require 'KwakModule'
 local nninit =require 'nninit'
 
 function convAdd(net,ind,outd,option)
@@ -29,18 +28,6 @@ local interdim =64
 local  k = option.kernel or 3
 local pad = option.pad or 1
 
-if option.DLrate then
-net:add(nn.DropLine(option.DLrate))
-end
-
-if option.DOrate then
-net:add(nn.Dropout(option.DOrate))
-end
-if option.BatchDO then
-net:add(nn.BatchDropout(option.BatchDO))
-end
-
-
 
 --convAdd(net,input_ch,interdim,option)
 net:add(nn.SpatialConvolution(input_ch,interdim,k,k,1,1,pad,pad):init('weight',nninit.kaiming))
@@ -60,14 +47,10 @@ net:add(nn.SpatialConvolution(interdim,output_ch,k,k,1,1,pad,pad):init('weight',
 
 
 
-if option.afterBatch then 
-net:add(nn.SpatialBatchNormalization(output_ch))
-end
 
 
 if option.zoom then
 local zoom =option.zoom
-print(zoom)
 net:add(nn.MulConstant(1/zoom))
 end
 
