@@ -2,11 +2,10 @@ require 'cunn'
 
 require 'image'
 require 'cudnn'
-require 'SuperResolution/TestParam'
-require 'KwakModule'
+require 'TestParam'
 
-require 'divideForward'
-require 'SuperResolution/MethodofTest'
+--require 'divideForward'
+require 'MethodofTest'
 
 -----------------------------------------
 cmd = torch.CmdLine()
