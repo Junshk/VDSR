@@ -1,5 +1,5 @@
 require 'torch'
-require 'SuperResolution/paramofTraining'
+require 'paramofTraining'
 torch.setdefaulttensortype('torch.FloatTensor')
 local start = math.random(maxDataNum)
 
