@@ -1,6 +1,6 @@
 --require 'Dropbox/MulSR/SRNet'
-require 'SuperResolution/Training'			
-require 'SuperResolution/param'
+require 'Training'			
+require 'param'
 local nnOption =require 'nnOption'
 
 require 'net_'
@@ -30,13 +30,6 @@ cutorch.setDevice(deviceNum )
 net_type = cmdparams.net_type or 'amp' --------------type setting
 print(net_type)
  netoptload =nnOption.load(net_type)
-
-if net_type =='amp' then
-netoption = '_'..option1.zoom..'_'..option2.zoom..'VDSR'end
-if cmdparams.DL  and net_type =='amp' then netoption ='DL'..netoption  ;
-option2.DLrate =0.4 end
-if cmdparams.DO  and net_type =='amp' then netoption = 'DO'..netoption; 
-option2.DOrate =0.4 end
 
 if cmdparams.kaiming then option1.kaiming =true ; option2.kaiming =true end
 
